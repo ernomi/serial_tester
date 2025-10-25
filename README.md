@@ -1,3 +1,5 @@
+serialib library: https://github.com/imabot2/serialib
+
 ## On Linux:
 ### Testing with virtual serial ports
 - Install socat
