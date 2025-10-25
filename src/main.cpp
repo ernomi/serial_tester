@@ -15,8 +15,22 @@
 
 int main(int argc, char** argv)
 {
+    if (argc > 3)
+    {
+        std::cerr << "Program accepts 2 arguments: arg 1 = port name, arg 2 = baudrate\n";
+        exit(1);
+    }
     std::string portName = (argc > 1) ? argv[1] : DEFAULT_PORT;
-    int baudrate = (argc > 2) ? std::stoi(argv[2]) : 9600;
+    int baudrate = 0;
+    try
+    {
+        baudrate = (argc > 2) ? std::stoi(argv[2]) : 9600;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Baudrate conversion failed\n" << e.what() << '\n';
+        exit(1);
+    }
 
     std::cout << "----------------------------------------\n";
     std::cout << " Serial Tester using serialib\n";
