@@ -5,7 +5,7 @@
 #include <string>
 #include <thread>
 #include <chrono>
-#include "serialib.h"  // from https://github.com/imabot2/serialib
+#include <serialib.h>  // from https://github.com/imabot2/serialib
 
 #ifdef _WIN32
 #define DEFAULT_PORT "COM5"
@@ -13,7 +13,8 @@
 #define DEFAULT_PORT "/dev/ttyUSB0"
 #endif
 
-int main(int argc, char* argv[]) {
+int main(int argc, char** argv)
+{
     std::string portName = (argc > 1) ? argv[1] : DEFAULT_PORT;
     int baudrate = (argc > 2) ? std::stoi(argv[2]) : 9600;
 
